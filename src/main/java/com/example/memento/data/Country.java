@@ -17,9 +17,6 @@ public class Country {
     @Column(nullable = false)
     private String name;
 
-    /**
-     * I can store the initial data in CountrySpecificListener
-     */
     @Transient
     private String initialName;
 

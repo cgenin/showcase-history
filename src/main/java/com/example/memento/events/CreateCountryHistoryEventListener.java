@@ -24,6 +24,7 @@ public class CreateCountryHistoryEventListener {
         System.out.println(event.id + "/" + event.oldName + "/" + event.NewName);
         var history = new CountryHistory(event.id, event.oldName, event.NewName);
         countryHistoryRepository.save(history);
+        // throw new IllegalStateException("error");
     }
 
 }

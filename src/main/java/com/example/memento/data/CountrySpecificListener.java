@@ -14,27 +14,19 @@ import java.util.UUID;
  * It's a fucking singleton
  */
 @Configurable
-@Transactional
 public class CountrySpecificListener {
 
-    private final UUID uuid;
     @Autowired
     private ApplicationEventPublisher publisher;
-
-    public CountrySpecificListener() {
-        this.uuid = UUID.randomUUID();
-    }
 
 
     @PostLoad
     public void postLoad(Country country) {
-
         country.setInitialName(country.getName());
     }
 
     @PostUpdate
     public void postUpdate(Country country) {
-
         var event = new CreateCountryHistoryEvent(country.getId(), country.getInitialName(), country.getName());
         publisher.publishEvent(event);
     }

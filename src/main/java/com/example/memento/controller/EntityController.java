@@ -40,6 +40,7 @@ public class EntityController {
         country2.setName("2-value to add in history");
         countryRepository.save(country2);
         // throw new IllegalStateException("dsqdqs");
+        System.out.println("before return");
         return "test";
     }
 }
